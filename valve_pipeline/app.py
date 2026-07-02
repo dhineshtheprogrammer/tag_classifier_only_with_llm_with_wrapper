@@ -27,13 +27,6 @@ st.caption("Upload a P&ID schematic to detect and classify valve symbols using c
 with st.sidebar:
     st.header("Settings")
 
-    api_key_input = st.text_input(
-        "OpenAI API Key",
-        type="password",
-        placeholder="sk-… (leave blank to use .env)",
-        help="Overrides the key in valve_pipeline/.env for this session.",
-    )
-
     st.divider()
     st.subheader("Detection")
     match_threshold = st.slider("Match threshold", 0.1, 1.0, 0.45, 0.05,
@@ -73,10 +66,6 @@ if run_btn and uploaded:
     input_dir.mkdir(exist_ok=True)
     input_path = input_dir / uploaded.name
     input_path.write_bytes(uploaded.getbuffer())
-
-    # Optionally inject API key
-    if api_key_input.strip():
-        os.environ["OPENAI_API_KEY"] = api_key_input.strip()
 
     # Patch config with sidebar values (write a temporary config)
     import yaml

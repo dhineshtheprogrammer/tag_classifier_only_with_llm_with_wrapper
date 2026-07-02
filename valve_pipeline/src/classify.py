@@ -7,7 +7,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 import cv2
-import openai
+from llama_index.core.llms import ChatMessage, MessageRole
 
 from .detect import Box
 
@@ -38,12 +38,12 @@ def build_reference_payload(
     return items
 
 
-# Sends a single cropped image to the OpenAI vision model alongside the reference valve images and returns the predicted label and confidence as a dict.
+# Sends a single cropped image to the enterprise wrapper vision model alongside the reference valve images and returns the predicted label and confidence as a dict.
 def classify_crop(
     crop_bgr: "np.ndarray",
     reference_payload: list,
     config: dict,
-    client: openai.OpenAI,
+    secure_models,
 ) -> dict:
     try:
         ok, buf = cv2.imencode(".png", crop_bgr)
@@ -53,9 +53,9 @@ def classify_crop(
     except Exception:
         return {"label": "unknown", "confidence": 0.0}
 
-    system_msg = {
-        "role": "system",
-        "content": (
+    system_msg = ChatMessage(
+        role=MessageRole.SYSTEM,
+        content=(
             "You are a strict P&ID valve symbol classifier. "
             "Your job is to determine if a cropped image from a P&ID schematic "
             "shows one of the known valve types, or something else entirely. "
@@ -72,7 +72,7 @@ def classify_crop(
             "one of the reference valve symbols. When in doubt, use 'unknown'. "
             "Reply with ONLY a JSON object."
         ),
-    }
+    )
 
     valid_labels = "|".join(sorted(VALID_LABELS - {"unknown"}))
 
@@ -98,12 +98,13 @@ def classify_crop(
         },
     ]
 
-    response = client.chat.completions.create(
-        model=config["model"],
-        messages=[system_msg, {"role": "user", "content": user_content}],
-        response_format={"type": "json_object"},
+    user_msg = ChatMessage(role=MessageRole.USER, content=user_content)
+
+    response = secure_models.chat(
+        [system_msg, user_msg],
+        llm_index=config["classify"]["llm_index"],
     )
-    raw = response.choices[0].message.content
+    raw = response.message.content
     if not raw:
         return {"label": "unknown", "confidence": 0.0}
     result = json.loads(raw)
@@ -116,27 +117,29 @@ def classify_crop(
     return {"label": label, "confidence": confidence}
 
 
-# Wraps classify_crop with exponential-backoff retry logic for rate limit errors, returning an "unknown" result if all attempts fail.
+# Wraps classify_crop with exponential-backoff retry logic, returning an "unknown" result if all attempts fail.
 def _call_with_retry(
     crop_bgr: "np.ndarray",
     reference_payload: list,
     config: dict,
-    client: openai.OpenAI,
+    secure_models,
     max_retries: int = 4,
 ) -> dict:
     for attempt in range(max_retries):
         try:
-            return classify_crop(crop_bgr, reference_payload, config, client)
-        except openai.RateLimitError:
-            wait = 2 ** attempt
-            print(f"[classify] Rate limit hit — retrying in {wait}s (attempt {attempt + 1})")
-            time.sleep(wait)
-        except openai.APIError as e:
-            print(f"[classify] API error (non-retryable): {e}")
-            break
-        except (json.JSONDecodeError, KeyError, ValueError) as e:
-            print(f"[classify] Parse error: {e}")
-            break
+            return classify_crop(crop_bgr, reference_payload, config, secure_models)
+        except Exception as e:
+            msg = str(e).lower()
+            if "rate limit" in msg or "429" in msg or "too many requests" in msg:
+                wait = 2 ** attempt
+                print(f"[classify] Rate limit hit — retrying in {wait}s (attempt {attempt + 1})")
+                time.sleep(wait)
+            elif (json.JSONDecodeError, KeyError, ValueError) and isinstance(e, (json.JSONDecodeError, KeyError, ValueError)):
+                print(f"[classify] Parse error: {e}")
+                break
+            else:
+                print(f"[classify] API error (non-retryable): {e}")
+                break
     return {"label": "unknown", "confidence": 0.0}
 
 
@@ -145,7 +148,7 @@ def classify_all(
     crops: list[tuple[Box, "np.ndarray"]],
     reference_payload: list,
     config: dict,
-    client: openai.OpenAI,
+    secure_models,
 ) -> list[dict]:
     if not crops:
         return []
@@ -155,7 +158,7 @@ def classify_all(
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         future_to_idx = {
-            executor.submit(_call_with_retry, crop, reference_payload, config, client): idx
+            executor.submit(_call_with_retry, crop, reference_payload, config, secure_models): idx
             for idx, (_box, crop) in enumerate(crops)
         }
         done = 0

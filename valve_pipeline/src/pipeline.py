@@ -5,14 +5,24 @@ import os
 from pathlib import Path
 
 import cv2
-import openai
 import yaml
 from dotenv import load_dotenv
 
 from .assemble import assemble
 from .classify import build_reference_payload, classify_all
+from .CustomAOI_helper import InitAOI
 from .detect import Box, crop_candidates, detect_candidates, load_templates
 from .preprocess import detect_drawing_roi, preprocess
+
+_LLM_MODELS = ["gpt-35-turbo", "gpt-4o", "gpt-4o-mini", "gpt-5.1"]
+_DEPLOYMENT_NAMES = [
+    "genAICoEDevelopmentAndTesting",
+    "genAICoEDevelopmentAndTestingGPT4oLLM",
+    "genAICoEDevelopmentAndTesting4oMini",
+    "genAICoEDevelopmentAndTestingGPT5v1",
+]
+_EMB_MODEL = "text-embedding-ada-002"
+_EMB_DEPLOYMENT = "DevelopmentAndTestingEmbedder"
 
 
 # Runs the full 4-stage pipeline (preprocess → detect → classify → assemble) on a single schematic image and writes annotated PNG + JSON results.
@@ -22,10 +32,15 @@ def run(
     debug: bool = False,
 ) -> list[dict]:
     load_dotenv()
-    api_key = os.environ.get("OPENAI_API_KEY")
-    if not api_key:
-        raise EnvironmentError("Set OPENAI_API_KEY in .env or environment before running")
-    client = openai.OpenAI(api_key=api_key)
+    username = os.environ.get("WRAPPER_USERNAME", "")
+    password = os.environ.get("WRAPPER_PASSWORD", "")
+    if not username or not password:
+        raise EnvironmentError("Set WRAPPER_USERNAME and WRAPPER_PASSWORD in .env before running")
+
+    secure_models = InitAOI(
+        __name__, username, password,
+        _LLM_MODELS, _DEPLOYMENT_NAMES, _EMB_MODEL, _EMB_DEPLOYMENT,
+    )
 
     with open(config_path) as f:
         config = yaml.safe_load(f)
@@ -91,7 +106,7 @@ def run(
 
     # Stage 3 — classify
     ref_payload = build_reference_payload(refs_dir, config["reference_map"])
-    results = classify_all(crops, ref_payload, config, client)
+    results = classify_all(crops, ref_payload, config, secure_models)
     print(f"[pipeline] Stage 3 done — {len(results)} classifications")
 
     # Stage 4 — assemble
