@@ -1,0 +1,161 @@
+{
+  "schematic": "C:\\Users\\Dhinesh\\Projects from Github\\TCS POCs\\tag_classifier_only_with_llm\\valve_pipeline\\input\\Quantiphi-Oil-Gas-Documents-1.jpg",
+  "detections": [
+    {
+      "bbox": [
+        1402,
+        159,
+        13,
+        30
+      ],
+      "label": "gate",
+      "confidence": 0.88,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        739,
+        388,
+        30,
+        15
+      ],
+      "label": "gate",
+      "confidence": 0.9,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        1327,
+        893,
+        114,
+        83
+      ],
+      "label": "gate",
+      "confidence": 0.88,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        1886,
+        942,
+        15,
+        29
+      ],
+      "label": "gate",
+      "confidence": 0.82,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        1218,
+        968,
+        190,
+        176
+      ],
+      "label": "gate",
+      "confidence": 0.72,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        290,
+        979,
+        824,
+        445
+      ],
+      "label": "gate",
+      "confidence": 0.9,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        1632,
+        1043,
+        13,
+        30
+      ],
+      "label": "gate",
+      "confidence": 0.9,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        2270,
+        1318,
+        27,
+        14
+      ],
+      "label": "gate",
+      "confidence": 0.92,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        1048,
+        1256,
+        32,
+        39
+      ],
+      "label": "threeway",
+      "confidence": 0.86,
+      "detection_source": "template",
+      "match_score": 0.4965006411075592
+    },
+    {
+      "bbox": [
+        606,
+        1122,
+        39,
+        32
+      ],
+      "label": "gate",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.48373523354530334
+    },
+    {
+      "bbox": [
+        1206,
+        1090,
+        32,
+        39
+      ],
+      "label": "gate",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.47889164090156555
+    },
+    {
+      "bbox": [
+        16,
+        106,
+        63,
+        78
+      ],
+      "label": "coriolismeter",
+      "confidence": 0.92,
+      "detection_source": "template",
+      "match_score": 0.4683401882648468
+    },
+    {
+      "bbox": [
+        1624,
+        230,
+        32,
+        39
+      ],
+      "label": "threeway",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.4595504403114319
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "schematic": "C:\\Users\\dhine\\Projects From Github\\tag_classifier_only_with_llm\\valve_pipeline\\input\\pid2 diagram.png",
+  "detections": [
+    {
+      "bbox": [
+        922,
+        196,
+        23,
+        44
+      ],
+      "label": "coriolismeter",
+      "confidence": 0.9,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        253,
+        354,
+        23,
+        44
+      ],
+      "label": "coriolismeter",
+      "confidence": 0.92,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        910,
+        188,
+        112,
+        60
+      ],
+      "label": "coriolismeter",
+      "confidence": 0.97,
+      "detection_source": "template",
+      "match_score": 0.7251869440078735
+    },
+    {
+      "bbox": [
+        669,
+        524,
+        110,
+        98
+      ],
+      "label": "oilpump",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.7239866256713867
+    },
+    {
+      "bbox": [
+        242,
+        345,
+        112,
+        60
+      ],
+      "label": "coriolismeter",
+      "confidence": 0.97,
+      "detection_source": "template",
+      "match_score": 0.7089075446128845
+    },
+    {
+      "bbox": [
+        97,
+        431,
+        118,
+        133
+      ],
+      "label": "oilpump",
+      "confidence": 0.98,
+      "detection_source": "template",
+      "match_score": 0.701421320438385
+    },
+    {
+      "bbox": [
+        844,
+        187,
+        112,
+        60
+      ],
+      "label": "coriolismeter",
+      "confidence": 0.98,
+      "detection_source": "template",
+      "match_score": 0.6864010095596313
+    },
+    {
+      "bbox": [
+        142,
+        215,
+        60,
+        112
+      ],
+      "label": "coriolismeter",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.6489149928092957
+    },
+    {
+      "bbox": [
+        175,
+        345,
+        112,
+        60
+      ],
+      "label": "coriolismeter",
+      "confidence": 0.95,
+      "detection_source": "template",
+      "match_score": 0.6437046527862549
+    },
+    {
+      "bbox": [
+        141,
+        281,
+        60,
+        112
+      ],
+      "label": "coriolismeter",
+      "confidence": 0.95,
+      "detection_source": "template",
+      "match_score": 0.60100919008255
+    },
+    {
+      "bbox": [
+        141,
+        54,
+        60,
+        112
+      ],
+      "label": "coriolismeter",
+      "confidence": 0.94,
+      "detection_source": "template",
+      "match_score": 0.5559885501861572
+    },
+    {
+      "bbox": [
+        830,
+        486,
+        52,
+        42
+      ],
+      "label": "gate",
+      "confidence": 0.94,
+      "detection_source": "template",
+      "match_score": 0.4637734591960907
+    }
+  ]
+}

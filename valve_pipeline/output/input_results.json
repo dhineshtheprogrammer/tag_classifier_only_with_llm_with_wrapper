@@ -1,0 +1,701 @@
+{
+  "schematic": "input/input.png",
+  "detections": [
+    {
+      "bbox": [
+        202,
+        158,
+        11,
+        13
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        549,
+        435,
+        329,
+        183
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        636,
+        469,
+        322,
+        82
+      ],
+      "label": "ball",
+      "confidence": 0.9,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        65,
+        537,
+        198,
+        79
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        194,
+        648,
+        50,
+        50
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.5027921795845032
+    },
+    {
+      "bbox": [
+        706,
+        589,
+        39,
+        32
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.5015856027603149
+    },
+    {
+      "bbox": [
+        500,
+        226,
+        39,
+        32
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.4961630702018738
+    },
+    {
+      "bbox": [
+        687,
+        157,
+        50,
+        50
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.49027013778686523
+    },
+    {
+      "bbox": [
+        808,
+        515,
+        39,
+        32
+      ],
+      "label": "pinch",
+      "confidence": 0.95,
+      "detection_source": "template",
+      "match_score": 0.4887535870075226
+    },
+    {
+      "bbox": [
+        747,
+        589,
+        39,
+        32
+      ],
+      "label": "pinch",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.4857608377933502
+    },
+    {
+      "bbox": [
+        386,
+        101,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.48151734471321106
+    },
+    {
+      "bbox": [
+        833,
+        515,
+        39,
+        32
+      ],
+      "label": "pinch",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.48066961765289307
+    },
+    {
+      "bbox": [
+        327,
+        588,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.4782998263835907
+    },
+    {
+      "bbox": [
+        207,
+        578,
+        50,
+        50
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.4774399399757385
+    },
+    {
+      "bbox": [
+        656,
+        377,
+        50,
+        50
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.4742300510406494
+    },
+    {
+      "bbox": [
+        587,
+        164,
+        52,
+        42
+      ],
+      "label": "pinch",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.46736234426498413
+    },
+    {
+      "bbox": [
+        203,
+        259,
+        39,
+        32
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.4631687104701996
+    },
+    {
+      "bbox": [
+        806,
+        163,
+        39,
+        32
+      ],
+      "label": "pinch",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.46307215094566345
+    },
+    {
+      "bbox": [
+        773,
+        164,
+        52,
+        42
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.46259984374046326
+    },
+    {
+      "bbox": [
+        664,
+        259,
+        39,
+        32
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.45739808678627014
+    },
+    {
+      "bbox": [
+        35,
+        344,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.44922447204589844
+    },
+    {
+      "bbox": [
+        352,
+        588,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.44701606035232544
+    },
+    {
+      "bbox": [
+        115,
+        589,
+        39,
+        32
+      ],
+      "label": "pinch",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.44493478536605835
+    },
+    {
+      "bbox": [
+        202,
+        377,
+        50,
+        50
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.44377240538597107
+    },
+    {
+      "bbox": [
+        407,
+        66,
+        32,
+        39
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.4434684216976166
+    },
+    {
+      "bbox": [
+        147,
+        355,
+        32,
+        39
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.4434683918952942
+    },
+    {
+      "bbox": [
+        351,
+        89,
+        42,
+        52
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.43953466415405273
+    },
+    {
+      "bbox": [
+        696,
+        571,
+        78,
+        63
+      ],
+      "label": "ball",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.439222127199173
+    },
+    {
+      "bbox": [
+        547,
+        442,
+        42,
+        52
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.4380400478839874
+    },
+    {
+      "bbox": [
+        305,
+        194,
+        32,
+        39
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.4364563524723053
+    },
+    {
+      "bbox": [
+        430,
+        455,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.4357107877731323
+    },
+    {
+      "bbox": [
+        441,
+        91,
+        32,
+        39
+      ],
+      "label": "ball",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.434688538312912
+    },
+    {
+      "bbox": [
+        300,
+        583,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.43219539523124695
+    },
+    {
+      "bbox": [
+        69,
+        310,
+        32,
+        39
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.4176158905029297
+    },
+    {
+      "bbox": [
+        857,
+        520,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.41451236605644226
+    },
+    {
+      "bbox": [
+        85,
+        581,
+        42,
+        52
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.41407889127731323
+    },
+    {
+      "bbox": [
+        613,
+        516,
+        52,
+        42
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.3995395004749298
+    },
+    {
+      "bbox": [
+        305,
+        167,
+        32,
+        39
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.3985295593738556
+    },
+    {
+      "bbox": [
+        172,
+        246,
+        78,
+        63
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.39387091994285583
+    },
+    {
+      "bbox": [
+        641,
+        581,
+        78,
+        63
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.3928569555282593
+    },
+    {
+      "bbox": [
+        649,
+        246,
+        66,
+        66
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.39217978715896606
+    },
+    {
+      "bbox": [
+        140,
+        589,
+        39,
+        32
+      ],
+      "label": "pinch",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.3879254460334778
+    },
+    {
+      "bbox": [
+        419,
+        384,
+        46,
+        43
+      ],
+      "label": "pinch",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.38478296995162964
+    },
+    {
+      "bbox": [
+        621,
+        169,
+        39,
+        32
+      ],
+      "label": "pinch",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.37864580750465393
+    },
+    {
+      "bbox": [
+        505,
+        92,
+        32,
+        39
+      ],
+      "label": "butterfly",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.3728486895561218
+    },
+    {
+      "bbox": [
+        401,
+        37,
+        31,
+        42
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.3719068169593811
+    },
+    {
+      "bbox": [
+        649,
+        521,
+        39,
+        32
+      ],
+      "label": "pinch",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.37185609340667725
+    },
+    {
+      "bbox": [
+        735,
+        581,
+        78,
+        63
+      ],
+      "label": "ball",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.3716721534729004
+    },
+    {
+      "bbox": [
+        430,
+        423,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.3710140883922577
+    },
+    {
+      "bbox": [
+        664,
+        557,
+        143,
+        116
+      ],
+      "label": "pinch",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.3684125244617462
+    },
+    {
+      "bbox": [
+        260,
+        590,
+        42,
+        31
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.36655542254447937
+    },
+    {
+      "bbox": [
+        463,
+        184,
+        50,
+        50
+      ],
+      "label": "pinch",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.3627910315990448
+    },
+    {
+      "bbox": [
+        552,
+        423,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.3627330958843231
+    },
+    {
+      "bbox": [
+        746,
+        168,
+        39,
+        32
+      ],
+      "label": "butterfly",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.35912832617759705
+    },
+    {
+      "bbox": [
+        353,
+        72,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.35708722472190857
+    },
+    {
+      "bbox": [
+        724,
+        494,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.35605624318122864
+    },
+    {
+      "bbox": [
+        671,
+        137,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.3508225679397583
+    },
+    {
+      "bbox": [
+        609,
+        544,
+        32,
+        39
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.35025453567504883
+    }
+  ]
+}

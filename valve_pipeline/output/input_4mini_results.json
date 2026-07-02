@@ -1,0 +1,209 @@
+{
+  "schematic": "input/input_54mini.png",
+  "detections": [
+    {
+      "bbox": [
+        103,
+        435,
+        356,
+        251
+      ],
+      "label": "threeway",
+      "confidence": 0.85,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        194,
+        648,
+        50,
+        50
+      ],
+      "label": "butterfly",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.5027921795845032
+    },
+    {
+      "bbox": [
+        687,
+        157,
+        50,
+        50
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.49027013778686523
+    },
+    {
+      "bbox": [
+        808,
+        515,
+        39,
+        32
+      ],
+      "label": "pinch",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.4887535870075226
+    },
+    {
+      "bbox": [
+        747,
+        589,
+        39,
+        32
+      ],
+      "label": "butterfly",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.4857608377933502
+    },
+    {
+      "bbox": [
+        386,
+        101,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.48151734471321106
+    },
+    {
+      "bbox": [
+        833,
+        515,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.48066961765289307
+    },
+    {
+      "bbox": [
+        207,
+        578,
+        50,
+        50
+      ],
+      "label": "threeway",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.4774399399757385
+    },
+    {
+      "bbox": [
+        806,
+        163,
+        39,
+        32
+      ],
+      "label": "pinch",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.46307215094566345
+    },
+    {
+      "bbox": [
+        696,
+        571,
+        78,
+        63
+      ],
+      "label": "butterfly",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.439222127199173
+    },
+    {
+      "bbox": [
+        300,
+        583,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.43219539523124695
+    },
+    {
+      "bbox": [
+        613,
+        516,
+        52,
+        42
+      ],
+      "label": "pinch",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.3995395004749298
+    },
+    {
+      "bbox": [
+        140,
+        589,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.3879254460334778
+    },
+    {
+      "bbox": [
+        621,
+        169,
+        39,
+        32
+      ],
+      "label": "pinch",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.37864580750465393
+    },
+    {
+      "bbox": [
+        649,
+        521,
+        39,
+        32
+      ],
+      "label": "threeway",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.37185609340667725
+    },
+    {
+      "bbox": [
+        735,
+        581,
+        78,
+        63
+      ],
+      "label": "ball",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.3716721534729004
+    },
+    {
+      "bbox": [
+        664,
+        557,
+        143,
+        116
+      ],
+      "label": "butterfly",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.3684125244617462
+    }
+  ]
+}

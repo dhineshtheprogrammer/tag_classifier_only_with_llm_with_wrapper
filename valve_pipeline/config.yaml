@@ -1,0 +1,30 @@
+model: gpt-5-mini-2025-08-07
+
+detection:
+  scales: [0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5]
+  angles: [0, 45, 90, 135, 180, 225, 270, 315]
+  match_threshold: 0.45
+  nms_iou: 0.3
+  border_margin: 0.03
+  cc_min_area: 80
+  cc_max_area: 8000
+  cc_aspect_range: [0.3, 4.0]
+
+classify:
+  confidence_floor: 0.7
+  max_workers: 4
+
+paths:
+  refs_dir: refs
+  input_dir: input
+  output_dir: output
+  debug_dir: output/debug
+
+reference_map:
+  ball.png: ball
+  butterfly.png: butterfly
+  three-way.png: threeway
+  pinch.png: pinch
+  gate.png: gate
+  oil-pump.png: oilpump
+  coriolis-meter.png: coriolismeter

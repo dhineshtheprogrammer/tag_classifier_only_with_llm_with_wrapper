@@ -1,0 +1,29 @@
+{
+  "schematic": "input/Screenshot 2026-06-18 171725.png",
+  "detections": [
+    {
+      "bbox": [
+        7,
+        22,
+        119,
+        36
+      ],
+      "label": "butterfly",
+      "confidence": 1.0,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        22,
+        20,
+        32,
+        39
+      ],
+      "label": "butterfly",
+      "confidence": 0.95,
+      "detection_source": "template",
+      "match_score": 0.414734810590744
+    }
+  ]
+}

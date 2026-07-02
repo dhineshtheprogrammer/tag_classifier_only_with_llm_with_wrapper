@@ -1,0 +1,137 @@
+{
+  "schematic": "C:\\Users\\Dhinesh\\Projects from Github\\TCS POCs\\tag_classifier_only_with_llm\\valve_pipeline\\input\\input_54mini.png",
+  "detections": [
+    {
+      "bbox": [
+        103,
+        435,
+        356,
+        251
+      ],
+      "label": "gate",
+      "confidence": 0.72,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        65,
+        537,
+        198,
+        79
+      ],
+      "label": "gate",
+      "confidence": 0.8,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        289,
+        626,
+        26,
+        36
+      ],
+      "label": "gate",
+      "confidence": 0.9,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        194,
+        648,
+        50,
+        50
+      ],
+      "label": "gate",
+      "confidence": 0.78,
+      "detection_source": "template",
+      "match_score": 0.5027921795845032
+    },
+    {
+      "bbox": [
+        808,
+        515,
+        39,
+        32
+      ],
+      "label": "gate",
+      "confidence": 0.92,
+      "detection_source": "template",
+      "match_score": 0.48875364661216736
+    },
+    {
+      "bbox": [
+        386,
+        101,
+        39,
+        32
+      ],
+      "label": "gate",
+      "confidence": 0.86,
+      "detection_source": "template",
+      "match_score": 0.4815174341201782
+    },
+    {
+      "bbox": [
+        833,
+        515,
+        39,
+        32
+      ],
+      "label": "gate",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.48066961765289307
+    },
+    {
+      "bbox": [
+        327,
+        588,
+        39,
+        32
+      ],
+      "label": "gate",
+      "confidence": 0.85,
+      "detection_source": "template",
+      "match_score": 0.4782998263835907
+    },
+    {
+      "bbox": [
+        587,
+        164,
+        52,
+        42
+      ],
+      "label": "gate",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.46736234426498413
+    },
+    {
+      "bbox": [
+        806,
+        163,
+        39,
+        32
+      ],
+      "label": "gate",
+      "confidence": 0.75,
+      "detection_source": "template",
+      "match_score": 0.4630722403526306
+    },
+    {
+      "bbox": [
+        773,
+        164,
+        52,
+        42
+      ],
+      "label": "gate",
+      "confidence": 0.9,
+      "detection_source": "template",
+      "match_score": 0.46259987354278564
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schematic": "C:\\Users\\dhine\\Projects From Github\\tag_classifier_only_with_llm\\valve_pipeline\\input\\Screenshot 2026-06-18 233759.png",
+  "detections": [
+    {
+      "bbox": [
+        10,
+        25,
+        120,
+        37
+      ],
+      "label": "gate",
+      "confidence": 0.9,
+      "detection_source": "cc",
+      "match_score": 1.0
+    },
+    {
+      "bbox": [
+        153,
+        26,
+        119,
+        36
+      ],
+      "label": "butterfly",
+      "confidence": 0.95,
+      "detection_source": "cc",
+      "match_score": 1.0
+    }
+  ]
+}

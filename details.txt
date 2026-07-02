@@ -1,0 +1,93 @@
+Project: P&ID Valve Detection & Classification Pipeline
+Objective
+Take a full P&ID schematic image, locate valve symbols using classical computer vision (no ML training), classify each one via the OpenAI vision API using 4 reference symbols as few-shot exemplars, and output an annotated image plus structured JSON.
+Hard constraints
+
+No YOLO, no trained detection models. Detection is OpenCV template matching + connected-component analysis only.
+No fine-tuning. Classification is few-shot prompting against the OpenAI API.
+Runs fully local except the OpenAI calls. API key from OPENAI_API_KEY env var.
+Detection is high-recall (over-propose); classification's "unknown" label is the precision filter.
+
+Tech stack
+Python 3.11+, opencv-python, numpy, openai (v1.x SDK), pillow, python-dotenv. Pin versions in requirements.txt.
+Project structure
+valve_pipeline/
+├── refs/                  # 4 labeled reference symbols (ball.png, butterfly.png, threeway.png, pinch.png)
+├── input/                 # schematics to process
+├── output/                # annotated images + JSON
+├── config.yaml            # all tunables (thresholds, scales, angles, model name)
+├── src/
+│   ├── preprocess.py
+│   ├── detect.py
+│   ├── classify.py
+│   ├── assemble.py
+│   └── pipeline.py        # orchestrates the 5 stages
+├── .env                   # OPENAI_API_KEY
+└── requirements.txt
+config.yaml — externalize every tunable
+
+model: gpt-4o
+detection.scales: list, e.g. 0.5→1.5 in 11 steps
+detection.angles: e.g. [0, 45, 90, 135, 180, 225, 270, 315]
+detection.match_threshold: 0.6 (start)
+detection.nms_iou: 0.3
+detection.cc_min_area / cc_max_area / cc_aspect_range: connected-component filters
+classify.confidence_floor: drop results below this
+classify.max_workers: parallel API calls
+reference_map: filename → label
+
+
+Stage 1 — preprocess.py
+Function: preprocess(image_path) -> np.ndarray
+
+Load grayscale, apply Otsu binary threshold, denoise (median blur), optional deskew via dominant-line angle from Hough transform.
+Return cleaned binary image. Save a debug copy to output/debug/ when a debug flag is on.
+
+Stage 2 — detect.py (the core)
+Function: detect_candidates(binary_img, templates, config) -> list[Box]
+Box = dataclass {x, y, w, h, score, source} where source ∈ {template, cc}.
+Two detectors, then merge:
+A) Template matching — for each of the 4 templates, loop over every scale × angle, build the transformed template (warpAffine for rotation, resize for scale), run cv2.matchTemplate with TM_CCOEFF_NORMED, collect all locations ≥ match_threshold.
+B) Connected components — connectedComponentsWithStats on the binary image, filter components by area range and aspect ratio (cc_* config) to keep glyph-sized blobs, emit their bounding boxes as candidates.
+Merge + NMS — concatenate both sets, run non-max suppression at nms_iou to dedupe. Helper non_max_suppression(boxes, iou) needed.
+Tell Claude Code: detection should over-propose deliberately — false positives are fine, they die in Stage 4. Missed valves cannot be recovered. Tune for recall.
+Stage 3 — cropping (in detect.py or pipeline.py)
+Function: crop_candidates(original_img, boxes, pad=4) -> list[(Box, np.ndarray)]
+
+Crop from the original image (not binarized) with small padding so OpenAI sees the real symbol. Skip degenerate/empty crops.
+
+Stage 4 — classify.py
+Function: classify_crop(crop_bgr, reference_payload, config) -> {label, confidence}
+
+Build the few-shot message once: text + each of the 4 reference images (base64) labeled with its name, then the crop, then an instruction to reply JSON only: {"label": <name|"unknown">, "confidence": <0-1>}.
+Call client.chat.completions.create with response_format={"type":"json_object"}, temperature=0.
+"unknown" is mandatory in the allowed label set — it's how false positives get filtered.
+Encode reference images once at startup (build_reference_payload()), reuse across all crops.
+Parallelize with ThreadPoolExecutor(max_workers); wrap each call in retry-with-backoff for rate limits. Encode crops as PNG → base64.
+
+Stage 5 — assemble.py
+Function: assemble(original_img, results, config) -> (annotated_img, records)
+
+Drop any result where label == "unknown" or confidence < confidence_floor.
+For survivors: draw bbox + label + confidence on a copy of the original.
+Build records: list of {bbox:[x,y,w,h], label, confidence, detection_source, match_score}.
+Save annotated PNG and results.json to output/.
+
+Orchestration — pipeline.py
+Function: run(schematic_path, config) chains: preprocess → detect → crop → classify (parallel) → assemble → write outputs. CLI entry: python -m src.pipeline input/diagram.png. Accept --config, --debug, --batch (process all of input/).
+
+Build order (have Claude Code do it in this sequence)
+
+Scaffold structure, requirements.txt, config.yaml, dotenv loading.
+preprocess.py + a visual debug-save so you can eyeball output.
+detect.py — template matching first, verify boxes overlay sensibly, then add connected components and NMS. This is where most tuning time goes; build it observable.
+classify.py — test on hand-made crops before wiring to detection.
+assemble.py, then pipeline.py to connect everything.
+End-to-end run on one schematic; tune config.yaml thresholds against results.
+
+Things to flag to Claude Code explicitly
+
+Detection quality is the bottleneck, not classification — budget iteration time there.
+Keep every stage's output inspectable (debug images per stage) so you can diagnose where recall is lost.
+The reference-image encoding happens once, not per crop (cost + latency).
+If recall is poor after tuning, the planned upgrade path is ORB/SIFT feature matching in detect.py — no other stage changes.
